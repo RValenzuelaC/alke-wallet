@@ -1,22 +1,103 @@
 <!doctype html>
-<html>
-	<head>
-		<title>Wallet - Menú Principal</title>
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		/>
-	</head>
-	<body>
-		<div class="container">
-			<h2>Menú Principal</h2>
-			<div class="form-group">
-				<label for="balance">Dinero en cuenta:</label>
-				<h3>$60000</h3>
+<html lang="es">
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<title>Wallet - Menú Principal</title>
+			<link
+				rel="stylesheet"
+				href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+				integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+				crossorigin="anonymous"
+			/>
+
+			<link rel="stylesheet" href="../assets/css/style.css" />
+		</head>
+		<body>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Alke Wallet</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div
+						class="collapse navbar-collapse justify-content-end"
+						id="navbarNav"
+					>
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a
+									href="../movimientos-dinero/deposit.html"
+									class="btn btn-dark w-100 py-2"
+									>Depositar</a
+								>
+							</li>
+							<li class="nav-item">
+								<a
+									href="../movimientos-dinero/sendmoney.html"
+									class="btn btn-dark w-100 py-2"
+									>Enviar Dinero</a
+								>
+							</li>
+							<li class="nav-item">
+								<a
+									href="../movimientos-dinero/transactions.html"
+									class="btn btn-dark w-100 py-2"
+									>Últimos Movimientos</a
+								>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="../login/login.html">Cerrar Sesión</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div
+				class="container-fluid d-flex align-items-center justify-content-center mt-5"
+			>
+				<div class="col-12 col-lg-5 col-xl-4 d-flex justify-content-center">
+					<div class="card card-login bg-dark text-white p-4 shadow-lg w-100">
+						<h1 class="h1-login mb-4">Menú Principal</h1>
+
+						<div
+							class="p-3 mb-4 rounded"
+							style="
+								background: linear-gradient(135deg, #1e2225, #2c3238);
+								border-left: 4px solid #6f42c1;
+							"
+						>
+							<span
+								class="text-muted small text-uppercase font-weight-bold d-block mb-1"
+								>Saldo Disponible</span
+							>
+							<h3 class="display-5 font-weight-bold mb-0">
+								$<span id="balance">60000</span>
+							</h3>
+							<small class="text-success">● Cuenta Activa</small>
+						</div>
+
+						<div class="d-flex flex-column gap-3"></div>
+					</div>
+				</div>
 			</div>
-			<a href="deposit.html" class="btn btn-dark">Depositar</a>
-			<a href="sendmoney.html" class="btn btn-dark">Enviar Dinero</a>
-			<a href="transactions.html" class="btn btn-dark">Últimos Movimientos</a>
-		</div>
-	</body>
+			<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+				crossorigin="anonymous"
+			></script>
+
+			<script src="../assets/js/menu.js"></script>
+		</body>
+	</html>
 </html>
