@@ -1,9 +1,289 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>sendmoney</title>
+		<title>Wallet - Enviar Dinero</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+			integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body></body>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand">Alke Wallet</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div
+					class="collapse navbar-collapse justify-content-end"
+					id="navbarNav"
+				>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="btn btn-dark w-100 py-2" href="../menu/menu.html"
+								>Menú Principal</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								class="btn btn-dark w-100 py-2"
+								href="../movimientos-dinero/deposit.html"
+								>Depositar</a
+							>
+						</li>
+
+						<li class="nav-item">
+							<a
+								class="btn btn-dark w-100 py-2"
+								href="../movimientos-dinero/transactions.html"
+								>Últimos Movimientos</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../login/login.html">Cerrar Sesión</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container mt-3">
+			<div id="mensaje"></div>
+		</div>
+
+		<div
+			class="container-fluid d-flex align-items-center justify-content-center mt-4"
+		>
+			<div class="col-12 col-md-8 col-lg-5 col-xl-4">
+				<div
+					class="card card-wallet bg-dark text-white shadow-lg border-0 mb-4 p-3"
+				>
+					<div class="card-body p-1">
+						<h2 class="card-title text-center mb-4 font-weight-bold">
+							Enviar Dinero
+						</h2>
+
+						<form id="formBuscador">
+							<div class="form-group">
+								<label
+									for="searchContact"
+									class="font-weight-bold text-secondary"
+									>Buscar en la agenda de transferencias:</label
+								>
+								<input
+									type="text"
+									class="form-control bg-secondary text-white border-0"
+									id="searchContact"
+									placeholder="Escribe un nombre..."
+								/>
+							</div>
+						</form>
+
+						<button
+							type="button"
+							class="btn btn-primary btn-block font-weight-bold py-2 mt-3"
+							data-toggle="modal"
+							data-target="#modalAgregarContacto"
+						>
+							Agregar nuevo contacto
+						</button>
+					</div>
+				</div>
+
+				<div class="card bg-dark text-white shadow-lg border-0 p-3 mb-5">
+					<div class="card-body p-1">
+						<h3 class="h5 mb-3 font-weight-bold text-center">Contactos</h3>
+
+						<ul id="contactList" class="list-group mb-4"></ul>
+
+						<button
+							type="button"
+							id="btnEnviarDinero"
+							class="btn btn-success btn-block font-weight-bold py-2 mb-3"
+						>
+							Enviar dinero
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="modal fade"
+			id="modalTransferir"
+			tabindex="-1"
+			role="dialog"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+				<div class="modal-content bg-dark text-white border-secondary">
+					<div class="modal-header border-secondary">
+						<h5 class="modal-title font-weight-bold">Enviar Dinero</h5>
+						<button
+							type="button"
+							class="close text-white"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Destinatario:
+							<strong id="destinoNombre" class="text-info"></strong>
+						</p>
+						<div class="form-group">
+							<label
+								for="montoTransferir"
+								class="font-weight-bold text-secondary"
+								>Monto a enviar:</label
+							>
+							<input
+								type="number"
+								class="form-control bg-secondary text-white border-0"
+								id="montoTransferir"
+								placeholder="$ Clic aquí para ingresar"
+							/>
+						</div>
+					</div>
+					<div class="modal-footer border-secondary">
+						<button
+							type="button"
+							class="btn btn-secondary font-weight-bold"
+							data-dismiss="modal"
+						>
+							Cancelar
+						</button>
+						<button
+							type="button"
+							class="btn btn-success font-weight-bold"
+							id="btnConfirmarTransferencia"
+						>
+							Transferir
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="modal fade"
+			id="modalAgregarContacto"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="modalContactoLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content bg-dark text-white border-secondary">
+					<div class="modal-header border-secondary">
+						<h5 class="modal-title font-weight-bold" id="modalContactoLabel">
+							Nuevo Contacto
+						</h5>
+						<button
+							type="button"
+							class="close text-white"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="formNuevoContacto">
+							<div class="form-group">
+								<label
+									for="nombreContacto"
+									class="font-weight-bold text-secondary"
+									>Nombre</label
+								>
+								<input
+									type="text"
+									class="form-control bg-secondary text-white border-0"
+									id="nombreContacto"
+									placeholder="Ej. Juan Pérez"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="rutContacto" class="font-weight-bold text-secondary"
+									>RUT</label
+								>
+								<input
+									type="text"
+									class="form-control bg-secondary text-white border-0"
+									id="rutContacto"
+									placeholder="Ej. 12345678K o 12.345.678-9"
+									minlength="9"
+									maxlength="12"
+									pattern="[0-9kK.\-]+"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label
+									for="bancoContacto"
+									class="font-weight-bold text-secondary"
+									>Banco</label
+								>
+								<input
+									type="text"
+									class="form-control bg-secondary text-white border-0"
+									id="bancoContacto"
+									placeholder="Ej. Banco Estado"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label
+									for="aliasContacto"
+									class="font-weight-bold text-secondary"
+									>Alias</label
+								>
+								<input
+									type="text"
+									class="form-control bg-secondary text-white border-0"
+									id="aliasContacto"
+									placeholder="Ej. juan.perez.alias"
+									required
+								/>
+							</div>
+							<div class="modal-footer px-0 pb-0 border-0">
+								<button
+									type="button"
+									class="btn btn-secondary font-weight-bold"
+									data-dismiss="modal"
+								>
+									Cancelar
+								</button>
+								<button type="submit" class="btn btn-primary font-weight-bold">
+									Guardar Contacto
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+			crossorigin="anonymous"
+		></script>
+		<script src="../assets/js/sendmoney.js"></script>
+	</body>
 </html>
