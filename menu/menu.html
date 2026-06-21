@@ -1,12 +1,17 @@
 <!doctype html>
-<html>
+<html lang="es">
 	<html>
 		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<title>Wallet - Menú Principal</title>
 			<link
 				rel="stylesheet"
-				href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+				href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+				integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+				crossorigin="anonymous"
 			/>
+
 			<link rel="stylesheet" href="../assets/css/style.css" />
 		</head>
 		<body>
@@ -63,15 +68,36 @@
 					<div class="card card-login bg-dark text-white p-4 shadow-lg w-100">
 						<h1 class="h1-login mb-4">Menú Principal</h1>
 
-						<div class="form-group mb-4">
-							<label for="balance">Dinero en cuenta:</label>
-							<h3 id="balance" class="mt-1">$60000</h3>
+						<div
+							class="p-3 mb-4 rounded"
+							style="
+								background: linear-gradient(135deg, #1e2225, #2c3238);
+								border-left: 4px solid #6f42c1;
+							"
+						>
+							<span
+								class="text-muted small text-uppercase font-weight-bold d-block mb-1"
+								>Saldo Disponible</span
+							>
+							<h3 class="display-5 font-weight-bold mb-0">
+								$<span id="balance">60000</span>
+							</h3>
+							<small class="text-success">● Cuenta Activa</small>
 						</div>
 
 						<div class="d-flex flex-column gap-3"></div>
 					</div>
 				</div>
 			</div>
+			<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+				crossorigin="anonymous"
+			></script>
+
+			<script src="../assets/js/menu.js"></script>
 		</body>
 	</html>
 </html>
