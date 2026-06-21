@@ -1,9 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>transactions</title>
+		<title>Wallet - Últimos Movimientos</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+			integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<body></body>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand">Alke Wallet</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div
+					class="collapse navbar-collapse justify-content-end"
+					id="navbarNav"
+				>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="btn btn-dark w-100 py-2" href="../menu/menu.html"
+								>Menú Principal</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								class="btn btn-dark w-100 py-2"
+								href="../movimientos-dinero/deposit.html"
+								>Depositar</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								class="btn btn-dark w-100 py-2"
+								href="../movimientos-dinero/sendmoney.html"
+								>Enviar Dinero</a
+							>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../login/login.html">Cerrar Sesión</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container mt-3">
+			<div id="mensaje"></div>
+		</div>
+
+		<div
+			class="container-fluid d-flex align-items-center justify-content-center mt-4"
+		>
+			<div class="col-12 col-md-8 col-lg-5 col-xl-4">
+				<div
+					class="card card-wallet bg-dark text-white shadow-lg border-0 mb-4 p-3"
+				>
+					<div class="card-body p-1">
+						<h2 class="card-title text-center mb-4 font-weight-bold">
+							Últimos Movimientos
+						</h2>
+
+						<ul id="movementsList" class="list-group mb-4">
+							<li class="list-group-item bg-dark text-white border-secondary">
+								Compra en línea - $50.00
+							</li>
+							<li class="list-group-item bg-dark text-white border-secondary">
+								Depósito - $100.00
+							</li>
+							<li class="list-group-item bg-dark text-white border-secondary">
+								Transferencia recibida - $75.00
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+			crossorigin="anonymous"
+		></script>
+		<script src="../assets/js/transactions.js"></script>
+	</body>
 </html>
