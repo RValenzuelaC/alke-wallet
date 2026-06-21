@@ -24,7 +24,7 @@ btnSubmit.addEventListener("click", (e) => {
 	if (usuarioIngresado === usuario && contrasenaIngresada === password) {
 		mensaje.innerHTML = `
 		<div class="alert alert-success">
-			Bienvenido
+			Bienvenido a tu billetera virtual.
 		</div>
 	`;
 

@@ -10,6 +10,32 @@ body {
 	min-height: 100vh;
 	margin: 0;
 }
+
+.card-wallet {
+	width: 100%;
+	max-width: 500px;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+	.card-wallet {
+		max-width: 650px;
+	}
+}
+
+/* PCs */
+@media (min-width: 992px) {
+	.card-wallet {
+		max-width: 800px;
+	}
+}
+
+/* Monitores grandes */
+@media (min-width: 1200px) {
+	.card-wallet {
+		max-width: 1000px;
+	}
+}
 .container {
 	max-width: 400px;
 	margin: 0 auto;
