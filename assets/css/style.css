@@ -3,5 +3,38 @@
 	color: antiquewhite;
 }
 body {
-	background: linear-gradient(180deg, #4a1f63 0%, #6d3b8c 100%);
+	padding: 20px;
+	background: #f5f7fa;
+	/* background: linear-gradient(180deg, #1f1a25 0%, #5f5480 50%, #6d3b8c 100%); */
+	/* background: linear-gradient(180deg, #4a1f63 0%, #6d3b8c 100%); */
+	min-height: 100vh;
+	margin: 0;
+}
+.container {
+	max-width: 400px;
+	margin: 0 auto;
+}
+.card-login {
+	max-width: 900px;
+	width: 100%;
+}
+.h1-login {
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+}
+.btn-primary-login {
+	background: #212529;
+	border: none;
+	color: #fff;
+}
+
+.btn-primary-login:hover {
+	background: #000;
+}
+#mensaje {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 9999;
+	width: 300px;
 }
