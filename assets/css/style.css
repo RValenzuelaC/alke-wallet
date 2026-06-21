@@ -6,9 +6,35 @@ body {
 	padding: 20px;
 	background: #f5f7fa;
 	/* background: linear-gradient(180deg, #1f1a25 0%, #5f5480 50%, #6d3b8c 100%); */
-	/* background: linear-gradient(180deg, #4a1f63 0%, #6d3b8c 100%); */
+	background: linear-gradient(180deg, #4a1f63 0%, #6d3b8c 100%);
 	min-height: 100vh;
 	margin: 0;
+}
+
+.card-wallet {
+	width: 100%;
+	max-width: 500px;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+	.card-wallet {
+		max-width: 650px;
+	}
+}
+
+/* PCs */
+@media (min-width: 992px) {
+	.card-wallet {
+		max-width: 800px;
+	}
+}
+
+/* Monitores grandes */
+@media (min-width: 1200px) {
+	.card-wallet {
+		max-width: 1000px;
+	}
 }
 .container {
 	max-width: 400px;
