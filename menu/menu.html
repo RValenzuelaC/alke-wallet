@@ -1,14 +1,75 @@
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>menu</title>
+		<title>Wallet - Menú Principal</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="../assets/css/style.css" />
 	</head>
-	<nav>
-		<ul>
-			<li>login</li>
-		</ul>
-	</nav>
-	<body></body>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Alke Wallet</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div
+					class="collapse navbar-collapse justify-content-end"
+					id="navbarNav"
+				>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a
+								href="../movimientos-dinero/deposit.html"
+								class="btn btn-dark w-100 py-2"
+								>Depositar</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								href="../movimientos-dinero/sendmoney.html"
+								class="btn btn-dark w-100 py-2"
+								>Enviar Dinero</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								href="../movimientos-dinero/transactions.html"
+								class="btn btn-dark w-100 py-2"
+								>Últimos Movimientos</a
+							>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../login/login.html">Cerrar Sesión</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div
+			class="container-fluid d-flex align-items-center justify-content-center mt-5"
+		>
+			<div class="col-12 col-lg-5 col-xl-4 d-flex justify-content-center">
+				<div class="card card-login bg-dark text-white p-4 shadow-lg w-100">
+					<h1 class="h1-login mb-4">Menú Principal</h1>
+
+					<div class="form-group mb-4">
+						<label for="balance">Dinero en cuenta:</label>
+						<h3 id="balance" class="mt-1">$60000</h3>
+					</div>
+
+					<div class="d-flex flex-column gap-3"></div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
