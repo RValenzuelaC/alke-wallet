@@ -1,16 +1,16 @@
 $(document).ready(function () {
 	const $movementsList = $("#movementsList");
 
-	// 1. Limpiamos la lista para estructurarla desde JavaScript
+	// se limpia la lista para empezar a estructurarla
 	$movementsList.empty();
 
 	const movimientosGuardados = localStorage.getItem("misMovimientos");
 	let todosLosMovimientos = [];
 
-	// 2. Cargamos los movimientos reales nuevos y los invertimos para que el último sea el primero
+	//  se cargan los movimientos reales nuevos y los invertimos para que el último sea el primero
 	if (movimientosGuardados) {
 		const listaMovimientos = movimientosGuardados.split("|");
-		// .reverse() asegura que el depósito o transferencia más reciente salga arriba del todo
+		// se utiliza reverse para que queden los ultimos movimientos al principio de la lista.
 		listaMovimientos.reverse().forEach(function (movimiento) {
 			if (movimiento.trim() !== "") {
 				todosLosMovimientos.push({ texto: movimiento, oculto: false });
@@ -18,7 +18,7 @@ $(document).ready(function () {
 		});
 	}
 
-	// 3. Cargamos los datos iniciales fijos debajo de los nuevos (y se ocultan por defecto)
+	// datos iniciales de los movimientos antes de todo.
 	const datosIniciales = [
 		"Compra en línea - $50.00",
 		"Depósito - $100.00",
@@ -32,26 +32,28 @@ $(document).ready(function () {
 		todosLosMovimientos.push({ texto: movimiento, oculto: true });
 	});
 
-	// 4. Renderizamos los elementos respetando el orden de arriba hacia abajo (.append)
-	todosLosMovimientos.forEach(function (mov) {
+	// se renderizn los elementos respetando el orden de arriba hacia abajo (.append)
+	todosLosMovimientos.forEach(function (movTransaciones) {
 		let claseColor = "text-white";
-		const textoMin = mov.texto.toLowerCase();
+		const textoMinimo = movTransaciones.texto.toLowerCase();
 
-		// Aplicamos colores según el tipo de movimiento
-		if (textoMin.includes("depósito") || textoMin.includes("recibida")) {
-			claseColor = "text-success font-weight-bold"; // Verde para ingresos
-		} else if (textoMin.includes("compra") || textoMin.includes("enviada")) {
-			claseColor = "text-danger font-weight-bold"; // Rojo para egresos
+		if (textoMinimo.includes("depósito") || textoMinimo.includes("recibida")) {
+			claseColor = "text-success font-weight-bold";
+		} else if (
+			textoMinimo.includes("compra") ||
+			textoMinimo.includes("enviada")
+		) {
+			claseColor = "text-danger font-weight-bold";
 		}
 
-		let claseOculto = mov.oculto ? "d-none historial-antiguo" : "";
+		let claseOculto = movTransaciones.oculto ? "d-none historial-antiguo" : "";
 
-		// Usamos .append() para inyectarlos en orden descendente estricto
-		const itemHtml = `<li class="list-group-item bg-dark ${claseColor} border-secondary ${claseOculto}">${mov.texto}</li>`;
+		// se utiliza append() para que los movimientos salgan en forma descendente
+		const itemHtml = `<li class="list-group-item bg-dark ${claseColor} border-secondary ${claseOculto}">${movTransaciones.texto}</li>`;
 		$movementsList.append(itemHtml);
 	});
 
-	// 5. Agregamos el botón de flecha al final de la tarjeta de forma dinámica
+	// Agregamos el botón mostrar más para ver la info de las transacciones
 	$movementsList.after(`
         <div class="text-center mt-3">
             <button id="btnMostrarMas" class="btn btn-link text-info font-weight-bold text-decoration-none">
@@ -60,7 +62,7 @@ $(document).ready(function () {
         </div>
     `);
 
-	// 6. Evento de clic para alternar entre mostrar y ocultar
+	// funcion para mostrar o ocular los archivos mostrados.
 	$(document).on("click", "#btnMostrarMas", function () {
 		const $elementosOcultos = $(".historial-antiguo");
 
